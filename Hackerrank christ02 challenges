@@ -1,0 +1,73 @@
+Q1
+import math
+def main():
+    n = int(input().strip())
+    product = 1.0
+    for _ in range(n):
+        num = float(input().strip())
+        product *= num
+    print(f"The product of the numbers is: {product:.2f}")
+if __name__ == "__main__":
+    main()
+
+
+Q2
+import sys
+def main():
+   n = int(input().strip())
+    total = 0.0
+    count = 0
+     while count < n:
+        num = float(input().strip())
+        total += num
+        count += 1
+    average = total / n
+    print(f"The average is: {average:.3f}")
+if __name__ == "__main__":
+    main()
+
+
+Q3
+import sys
+def main():
+    n = int(input().strip())
+    m = int(input().strip())
+    multiples = [str(i) for i in range(n + 1, m) if i % 3 == 0]
+print(" ".join(multiples))
+if __name__ == "__main__":
+    main()
+
+
+Q4
+import sys
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+def main():
+    n = int(input().strip())
+    if is_prime(n):
+        print(f"{n} is a prime number")
+    else:
+        print(f"{n} is not a prime number")
+if __name__ == "__main__":
+    main()
+
+
+Q5
+def read_matrix(rows):
+    return [list(map(int, input().split())) for _ in range(rows)]
+def print_matrix(matrix, name):
+    print(f"{name}:")
+    print("\n".join(" ".join(map(str, row)) for row in matrix))
+def main():
+    rows, cols = map(int, input().split())
+    matrix1, matrix2 = read_matrix(rows), read_matrix(rows)
+    print_matrix(matrix1, "First Matrix")
+    print_matrix(matrix2, "Second Matrix")
+    print_matrix([[matrix1[i][j] + matrix2[i][j] for j in range(cols)] for i in range(rows)], "Sum of the two matrices is")
+if __name__ == "__main__":
+    main()
