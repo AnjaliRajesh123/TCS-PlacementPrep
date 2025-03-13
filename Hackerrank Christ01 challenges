@@ -1,0 +1,58 @@
+Q1
+def min_chairs_required(simulation: str) -> int:
+    current_chairs = 0  
+    max_chairs = 0  
+    for event in simulation:
+        if event in ('C', 'U'):  
+            current_chairs += 1
+            max_chairs = max(max_chairs, current_chairs)
+        elif event in ('R', 'L'):  
+            current_chairs -= 1
+    return max_chairs
+simulation = input().strip()
+print(min_chairs_required(simulation)) 
+
+
+Q2
+def contains_duplicate(nums):
+    return len(nums) != len(set(nums))
+n = int(input().strip())
+nums = list(map(int, input().strip().split()))
+print("true" if contains_duplicate(nums) else "false")
+
+
+Q3
+def is_anagram(s, t):
+  return sorted(s) == sorted(t)
+print("true" if is_anagram(input(), input()) else "false")
+
+
+Q4
+def count_odd_numbers(nums):
+    odd_count = sum(1 for num in nums if num % 2 != 0)
+    if odd_count > 0:
+        print(f"Odd Elements: {odd_count}")
+    else:
+        print("No odd elements are present")
+n = int(input().strip())
+nums = [int(input().strip()) for _ in range(n)]
+count_odd_numbers(nums)
+
+
+Q5
+def has_pair_with_sum(nums, target):
+    left, right = 0, len(nums) - 1
+    while left < right:
+        current_sum = nums[left] + nums[right]
+        if current_sum == target:
+            return "Yes"
+        elif current_sum < target:
+            left += 1
+        else:
+            right -= 1
+    return "No"
+n = int(input().strip())
+nums = list(map(int, input().strip().split()))
+target = int(input().strip())
+print(has_pair_with_sum(nums, target))
+
